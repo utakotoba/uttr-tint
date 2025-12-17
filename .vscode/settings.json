@@ -36,5 +36,8 @@
     "jsonc",
     "css",
     "yaml"
+  ],
+  "cSpell.words": [
+    "uttr"
   ]
 }
