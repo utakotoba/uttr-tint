@@ -50,6 +50,8 @@ console.log(red.bold`Success!`)
 - `v0.1.x`: breaking changes may occur in patch releases.
 - `v0.x.x` (except `v0.1.x`): breaking changes may occur in minor releases.
 
+---
+
 ### apis
 
 `tint` exposes standard ANSI colors and modifiers as chainable properties.
@@ -62,6 +64,8 @@ console.log(red.bold`Success!`)
 
 #### modifiers
 `bold`, `dim`, `italic`, `underline`, `inverse`, `hidden`, `strikethrough`, `reset`
+
+---
 
 ### benchmark
 
@@ -137,6 +141,8 @@ kleur: cached template literal - bench/color.bench.ts > cached template literal 
   6.94x faster than chalk: nested template literal
   10.70x faster than yocto: nested functional
 ```
+
+---
 
 ### license
 
