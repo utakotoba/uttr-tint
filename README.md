@@ -74,7 +74,7 @@ console.log(red.bold`Success!`)
 > [!WARNING]
 > **Implementation Note on Fairness**
 >
-> `tint` achieves its speed by memoizing (caching) style chains directly on the function instances.
+> `tint` achieves its speed by memoizing (caching) style chains directly inside the module.
 >
 > When you access `tint.red.bold`, we create and attach the specialized function for that exact combination permanently. Other libraries typically rebuild the chain or traverse prototypes on every access, which may save memory in some JavaScript engines but costs CPU cycles.
 >
