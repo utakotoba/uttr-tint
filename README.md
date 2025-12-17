@@ -1,8 +1,26 @@
 ### @uttr/tint
 
-A microscopic, fast, zero-dependency ANSI styling library for Node.js, Bun, and Deno.
+a microscopic, fast, zero-dependency ANSI styling library for Node.js, Bun, and Deno.
 
 `tint` is optimized for performance by aggressively caching style chains and pre-compiling regex logic for correct nesting. It provides a familiar chainable API (`tint.red.bold`) and fully supports template literals.
+
+### installation
+
+```sh
+npm install @uttr/tint
+```
+
+```sh
+yarn add @uttr/tint
+```
+
+```sh
+pnpm add @uttr/tint
+```
+
+```sh
+bun add @uttr/tint
+```
 
 ### usage
 
@@ -19,7 +37,7 @@ console.log(tint.green`Server running at ${tint.underline`http://localhost:3000`
 console.log(tint.red`Error: ${tint.yellow.italic`File not found`}`)
 ```
 
-Or using named imports:
+or using named imports:
 
 ```typescript
 import { bold, green, red } from '@uttr/tint'
@@ -27,7 +45,7 @@ import { bold, green, red } from '@uttr/tint'
 console.log(red.bold`Success!`)
 ```
 
-#### versioning
+### versioning
 
 - `v0.1.x`: breaking changes may occur in patch releases.
 - `v0.x.x` (except `v0.1.x`): breaking changes may occur in minor releases.
@@ -36,13 +54,13 @@ console.log(red.bold`Success!`)
 
 `tint` exposes standard ANSI colors and modifiers as chainable properties.
 
-#### Colors
-`black`, `red`, `green`, `yellow`, `blue`, `magenta`, `cyan`, `white`, `grey` (alias: `gray`)
+#### colors
+`black`, `red`, `green`, `yellow`, `blue`, `magenta`, `cyan`, `white`, `grey`
 
-#### Backgrounds
+#### backgrounds
 `bgBlack`, `bgRed`, `bgGreen`, `bgYellow`, `bgBlue`, `bgMagenta`, `bgCyan`, `bgWhite`
 
-#### Modifiers
+#### modifiers
 `bold`, `dim`, `italic`, `underline`, `inverse`, `hidden`, `strikethrough`, `reset`
 
 ### benchmark
@@ -60,7 +78,7 @@ console.log(red.bold`Success!`)
 >
 > We are currently working on measuring the exact memory trade-off in various environments.
 
-Benchmark environment: Bun 1.3.4 on M3 Pro Macbook Pro with 36GB of RAM.
+benchmark environment: Bun 1.3.4 on M3 Pro MacBook Pro with 36GB of RAM.
 
 ```plain
 ✓ bench/color.bench.ts > cached (local variable) 12981ms
@@ -119,3 +137,7 @@ kleur: cached template literal - bench/color.bench.ts > cached template literal 
   6.94x faster than chalk: nested template literal
   10.70x faster than yocto: nested functional
 ```
+
+### license
+
+MIT LICENSE Copyright (c) 2025 Kohane
