@@ -4,7 +4,7 @@ A microscopic, fast, zero-dependency ANSI styling library for Node.js, Bun, and 
 
 `tint` is optimized for performance by aggressively caching style chains and pre-compiling regex logic for correct nesting. It provides a familiar chainable API (`tint.red.bold`) and fully supports template literals.
 
-### Usage
+### usage
 
 ```typescript
 import * as tint from '@uttr/tint'
@@ -27,7 +27,12 @@ import { bold, green, red } from '@uttr/tint'
 console.log(red.bold`Success!`)
 ```
 
-### API
+#### versioning
+
+- `v0.1.x`: breaking changes may occur in patch releases.
+- `v0.x.x` (except `v0.1.x`): breaking changes may occur in minor releases.
+
+### apis
 
 `tint` exposes standard ANSI colors and modifiers as chainable properties.
 
@@ -40,7 +45,7 @@ console.log(red.bold`Success!`)
 #### Modifiers
 `bold`, `dim`, `italic`, `underline`, `inverse`, `hidden`, `strikethrough`, `reset`
 
-### Benchmark
+### benchmark
 
 `tint` is designed to be the fastest option for both simple and complex nested styling.
 
