@@ -1,0 +1,50 @@
+{
+  "name": "@aimless/ts-package-starter",
+  "type": "module",
+  "version": "0.1.0-dev.1",
+  "description": "Project template for single TypeScript package",
+  "author": "Kohane <i@kept.to>",
+  "license": "MIT",
+  "homepage": "https://github.com/utakotoba/ts-package-starter#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utakotoba/ts-package-starter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/utakotoba/ts-package-starter/issues"
+  },
+  "keywords": [],
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepare": "simple-git-hooks",
+    "typecheck": "tsc --noEmit",
+    "dev": "tsdown --watch",
+    "build": "tsdown",
+    "prepublishOnly": "bun run build"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^6.7.1",
+    "bun": "^1.3.4",
+    "eslint": "^9.39.2",
+    "jiti": "^2.6.1",
+    "lint-staged": "^16.2.7",
+    "simple-git-hooks": "^2.13.1",
+    "tsdown": "^0.16.8",
+    "typescript": "^5.9.3"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "bun run lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}
