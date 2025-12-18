@@ -214,6 +214,29 @@ for (const name in styles) {
   })
 }
 
+// MARK: - Utilities
+
+// eslint-disable-next-line no-control-regex
+const RE_ANSI = /\x1B\[\d+m/g
+
+/**
+ * Strip ANSI escape codes from a string
+ * @param str - The string to strip ANSI escape codes from
+ * @returns The string with ANSI escape codes removed
+ */
+export function strip(str: string): string {
+  return str.replace(RE_ANSI, '')
+}
+
+/**
+ * Get the raw length of a string, ignoring ANSI escape codes
+ * @param str - The string to get the raw length of
+ * @returns The raw length of the string
+ */
+export function rawLen(str: string): number {
+  return strip(str).length
+}
+
 // MARK: - Exports
 
 export const black = base.black

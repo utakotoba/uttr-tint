@@ -65,6 +65,10 @@ console.log(red.bold`Success!`)
 #### modifiers
 `bold`, `dim`, `italic`, `underline`, `inverse`, `hidden`, `strikethrough`, `reset`
 
+#### utilities
+- `strip(string)`: Removes all ANSI escape codes from a string.
+- `rawLen(string)`: Returns the length of a string ignoring ANSI escape codes.
+
 ---
 
 ### benchmark
