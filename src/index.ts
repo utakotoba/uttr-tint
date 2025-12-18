@@ -41,7 +41,10 @@ const STYLE = {
 
 // MARK: - Types
 
-interface Styler {
+/**
+ * Styler is used to style text with ANSI escape codes.
+ */
+export interface Styler {
   (text: string): string
   (strings: TemplateStringsArray, ...values: any[]): string
 
