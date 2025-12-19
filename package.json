@@ -1,7 +1,7 @@
 {
   "name": "@uttr/tint",
   "type": "module",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Yet another fast and minimalist console color utility",
   "author": "Kohane <i@kept.to>",
   "license": "MIT",
