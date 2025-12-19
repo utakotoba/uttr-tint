@@ -90,17 +90,21 @@ interface StylerInternal extends Styler {
 
 // MARK: - Env Detection
 
-// TODO: make it robust enough
 function isColorSupported(): boolean {
-  if (typeof process !== 'undefined') {
-    const { env, stdout } = process
-    if (env.NO_COLOR || env.NODE_DISABLE_COLORS)
-      return false
-    if (env.FORCE_COLOR)
-      return true
-    return Boolean(stdout && stdout.isTTY)
-  }
-  return false // Fallback for non-node envs
+  if (typeof process === 'undefined')
+    return false
+
+  const { env, stdout, argv, platform } = process
+
+  const isNoColor = !!env.NO_COLOR || (argv && argv.includes('--no-color')) || !!env.NODE_DISABLE_COLORS
+  const isForceColor = !!env.FORCE_COLOR || (argv && argv.includes('--color'))
+
+  return !isNoColor && (
+    isForceColor
+    || platform === 'win32'
+    || (!!stdout?.isTTY && env.TERM !== 'dumb')
+    || !!env.CI
+  )
 }
 
 const ENABLED = isColorSupported()
@@ -242,31 +246,31 @@ export function rawLen(str: string): number {
 
 // MARK: - Exports
 
-export const black = base.black
-export const red = base.red
-export const green = base.green
-export const yellow = base.yellow
-export const blue = base.blue
-export const magenta = base.magenta
-export const cyan = base.cyan
-export const white = base.white
-export const grey = base.grey
-export const normal = base.normal
+export const black: Styler = base.black
+export const red: Styler = base.red
+export const green: Styler = base.green
+export const yellow: Styler = base.yellow
+export const blue: Styler = base.blue
+export const magenta: Styler = base.magenta
+export const cyan: Styler = base.cyan
+export const white: Styler = base.white
+export const grey: Styler = base.grey
+export const normal: Styler = base.normal
 
-export const bgBlack = base.bgBlack
-export const bgRed = base.bgRed
-export const bgGreen = base.bgGreen
-export const bgYellow = base.bgYellow
-export const bgBlue = base.bgBlue
-export const bgMagenta = base.bgMagenta
-export const bgCyan = base.bgCyan
-export const bgWhite = base.bgWhite
+export const bgBlack: Styler = base.bgBlack
+export const bgRed: Styler = base.bgRed
+export const bgGreen: Styler = base.bgGreen
+export const bgYellow: Styler = base.bgYellow
+export const bgBlue: Styler = base.bgBlue
+export const bgMagenta: Styler = base.bgMagenta
+export const bgCyan: Styler = base.bgCyan
+export const bgWhite: Styler = base.bgWhite
 
-export const bold = base.bold
-export const dim = base.dim
-export const italic = base.italic
-export const underline = base.underline
-export const inverse = base.inverse
-export const hidden = base.hidden
-export const strikethrough = base.strikethrough
-export const reset = base.reset
+export const bold: Styler = base.bold
+export const dim: Styler = base.dim
+export const italic: Styler = base.italic
+export const underline: Styler = base.underline
+export const inverse: Styler = base.inverse
+export const hidden: Styler = base.hidden
+export const strikethrough: Styler = base.strikethrough
+export const reset: Styler = base.reset
