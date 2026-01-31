@@ -150,4 +150,4 @@ kleur: cached template literal - bench/color.bench.ts > cached template literal 
 
 ### license
 
-MIT LICENSE Copyright (c) 2025 Kohane
+MIT LICENSE Copyright (c) 2025 Ly
